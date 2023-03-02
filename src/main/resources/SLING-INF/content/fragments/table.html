@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<table class="pure-table"
+       data-th-fragment="table(table)" data-th-with="rows=${rows} ?: ${table.rows}">
+    <thead>
+        <th data-th-each="hcol : ${table.heading}" data-th-text="${hcol}">[HEADING]</th>
+    </thead>
+    <tbody>
+        <tr data-th-each="row : ${rows}">
+            <td data-th-each="col : ${row}" data-th-text="${col}">[COLUMN]</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

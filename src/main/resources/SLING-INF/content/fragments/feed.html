@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- feed: org.whistlepost.model.extensions.FeedEndpointRequest -->
+<div data-th-fragment="info(feed)">
+    <a href="#" data-th-href="${feed.url}" data-th-text="${feed.title}">[FEED NAME]</a>
+    <a href="#" data-th-href="${feed.feedUrl}"><i class="fa feed"></i></a>
+</div>
+
+<!--
+    feed: org.whistlepost.model.extensions.FeedEndpointRequest
+    paging: org.mnode.whistlepost.model.request.Paging
+-->
+<div data-th-fragment="summary(feed, paging)">
+<!--    <h4 data-th-text="${feed.title}">[TITLE]</h4>-->
+    <ul>
+        <li data-th-each="entry : ${feed.pageItems}">
+                <a href="#" target="_blank" data-th-href="${entry.link}" data-th-text="${entry.title}">[ENTRY]</a>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <th:block data-th-if="${not #strings.isEmpty(entry.comments)}">
+                    <a href="#" target="_blank"
+                       data-th-href="${entry.comments}" data-th-text="Comments">[COMMENTS]</a>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </th:block>
+            <th:block data-th-unless="${entry.enclosures.empty}">
+                <br/>
+                <th:block data-th-switch="${#strings.substringBefore(entry.enclosures[0].type,'/')}">
+                    <video data-th-case="${'video'}" width="320" controls>
+                        <source src="#" data-th-src="${entry.enclosures[0].url}" data-th-type="${entry.enclosures[0].type}">
+                        Your browser does not support the video tag.
+                    </video>
+                    <audio data-th-case="${'audio'}" controls>
+                        <source src="#" data-th-src="${entry.enclosures[0].url}" data-th-type="${entry.enclosures[0].type}">
+                        Your browser does not support the audio tag.
+                    </audio>
+                    <img src="#" width="320" data-th-case="${'image'}" data-th-src="${entry.enclosures[0].url}">
+                </th:block>
+            </th:block>
+        </li>
+    </ul>
+<!--    <a href="#" data-th-each="pageNum : ${loader.pageNumbers}" data-th-text="${pageNum}"></a>-->
+</div>
+
+</body>
+</html>

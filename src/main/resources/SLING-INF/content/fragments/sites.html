@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<ul data-th-fragment="site-list(sites)">
+    <li data-th-each="site : ${sites}">
+        <a href="#" target="_blank"
+            data-th-href="|${site.home.path}.html|" data-th-text="${site.title}">[SITE]</a>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <a href="#"
+            data-th-href="|${site.configuration.path}.html|" data-th-text="#{'configure'}">[CONFIGURE]</a>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<div data-th-fragment="summary(localBusiness)">
+    <a data-th-href="|${localBusiness.resource.path}.html|">
+        <img class="pure-img" data-th-src="${localBusiness.image}" data-th-alt="|${localBusiness.title} image|"/>
+    </a>
+</div>
+
+<div data-th-fragment="sidebar(list)">
+    <th:block data-th-each="localBusiness : ${list.getShuffledList()}">
+        <div
+             data-th-replace="/apps/wp-pure/fragments/localBusiness.html::summary(${localBusiness})">
+        </div>
+    </th:block>
+</div>
+
+</body>
+</html>

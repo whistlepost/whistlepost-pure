@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<nav data-th-fragment="header-nav(nav)" class="pure-menu pure-menu-horizontal" style="position:sticky; top:0; z-index: 2; background-color: white; display:flex; align-items:center; font-size:1.2em; margin-left:-10px; margin-right:-10px;">
+    <a href="#" class="pure-menu-heading pure-menu-link">
+        <img class="pure-img" style="max-height:40px;" src="https://dummyimage.com/120x40/aaa/fff" alt="Placeholder logo image"
+             data-th-src="${nav.branding.logo}" data-th-alt="${nav.branding.alttext}">
+    </a>
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"
+            data-th-each="ref : ${nav.headerNav}">
+            <a href="#" class="pure-menu-link"
+               data-th-href="|${resolver.map(request, ref.resource.path)}.html|" data-th-text="${ref.title}">[TARGET]</a>
+        </li>
+    </ul>
+    <div style="flex-grow:2;"></div>
+    <th:block data-sling-include="${resource}" data-sling-resourceType="'wp-pure/extension/weather'">
+        [WEATHER]
+    </th:block>
+</nav>
+
+<div data-th-fragment="columns-nav(nav)" class="wnews-columns">
+    <div class="pure-g" style="margin-top:30px; flex-wrap:nowrap;">
+        <th:block data-th-each="column : ${nav.columnNav}">
+            <div style="padding-left:15px;" data-th-class="|pure-u-1-${#lists.size(nav.columnNav)}|"
+                 data-th-with="list=${resolver.resolve(request, column).adaptTo(@org.whistlepost.model.schema.CreativeWorkList@class)}"
+                 data-th-insert="/apps/wp-pure/fragments/article.html::link-list(${list})"></div>
+        </th:block>
+    </div>
+</div>
+
+<nav data-th-fragment="footer-nav" class="pure-menu pure-menu-horizontal justify-content-center">
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/content/wnews/advertising.html">Advertise</a>
+        </li>
+        <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/content/wnews/subscribe.html">Subscribe</a>
+        </li>
+        <li class="pure-menu-item">
+            <a class="pure-menu-link" href="/content/wnews/contact.html">Contact Us</a>
+        </li>
+    </ul>
+</nav>
+
+<nav data-th-fragment="breadcrumb(breadcrumb)">
+    <ul class="breadcrumb">
+        <th:block data-th-each="pathSegment : ${breadcrumb.pathSegments}">
+            <li>
+                <a href="#" data-th-href="|${pathSegment.path}.html|" data-th-text="${pathSegment.name}">[SEGMENT]</a>
+            </li>
+        </th:block>
+    </ul>
+</nav>
+
+</body>
+</html>

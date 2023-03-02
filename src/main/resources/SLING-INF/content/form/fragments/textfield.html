@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<form class="pure-form pure-form-aligned">
+<th:block data-th-fragment="textfield(control)" data-th-with="value=${value} ?: ${control.textValue}">
+    <div>
+        <label for="tf1"
+               data-th-for="${control.id}" data-th-text="#{${control.labelKey}}">[LABEL]</label>
+        <input type="text" id="tf1"
+               data-th-type="${control.validation.type}" data-th-id="${control.id}"
+               data-th-name="${control.name}" data-th-value="${value}"
+               data-th-placeholder="${control.validation.placeholder}" placeholder="[PLACEHOLDER]"
+               data-th-pattern="${control.validation.pattern}" data-th-title="${control.validation.title}"
+               data-th-required="${control.required}">
+        <span style="color:red" data-th-if="${control.required}">*</span>
+    </div>
+</th:block>
+</form>
+</body>
+</html>

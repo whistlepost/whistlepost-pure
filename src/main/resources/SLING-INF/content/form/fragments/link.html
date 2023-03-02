@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<th:block data-th-fragment="link(control)" data-th-with="value=${value} ?: #{${control.valueKey}}">
+    <a href="#"
+       data-th-href="|${control.target.path}.html|" data-th-text="${value}">
+        [LINK]
+    </a>
+</th:block>
+
+<th:block data-th-fragment="cancel(control)" data-th-with="value=${value} ?: #{${control.valueKey}}">
+    <a href="#" class="pure-button"
+       data-th-href="|${resource.parent.path}.html|" data-th-text="${value}">[CANCEL]</a>
+</th:block>
+
+</body>
+</html>

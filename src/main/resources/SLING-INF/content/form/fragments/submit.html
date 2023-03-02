@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<form>
+    <th:block data-th-fragment="submit(control)" data-th-with="value=${value} ?: #{${control.valueKey}}">
+        <input type="submit"
+               data-th-id="${control.id}" data-th-name="${control.name}" data-th-value="${value}">
+    </th:block>
+
+    <th:block data-th-fragment="cancel(control)" data-th-with="value=${value} ?: #{${control.valueKey}}">
+        <input type="submit" form="cancel" value="Cancel"
+               data-th-id="${control.id}" data-th-name="${control.name}" data-th-value="${value}">
+    </th:block>
+</form>
+<form id="cancel">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div data-th-with="layout=${resource.adaptTo(@org.whistlepost.model.site.Layout@class)}">
+    <ul>
+        <li>
+            Header:
+            <a href="#" data-th-href="|${layout.header}.html|">[HEADER LINK]</a>
+        </li>
+        <li>
+            Sidebar:
+            <a href="#" data-th-href="|${layout.sidebar}.html|">[SIDEBAR LINK]</a>
+        </li>
+        <li>
+            Footer:
+            <a href="#" data-th-href="|${layout.footer}.html|">[FOOTER LINK]</a>
+        </li>
+        <li>
+            Navigation:
+            <a href="#" data-th-href="|${layout.navigation}.html|">[NAVIGATION LINK]</a>
+        </li>
+    </ul>
+</div>

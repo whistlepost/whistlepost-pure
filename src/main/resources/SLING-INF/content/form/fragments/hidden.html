@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<th:block data-th-fragment="hidden(control)" data-th-with="value=${value} ?: #{${control.value}}">
+    <input type="hidden"
+           data-th-name="${control.name}" data-th-value="${value}">
+</th:block>
+
+</body>
+</html>

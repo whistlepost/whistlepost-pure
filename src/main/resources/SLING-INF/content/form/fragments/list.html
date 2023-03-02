@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<th:block data-th-fragment="option-list(control)">
+    <label for="valueField"
+           data-th-text="#{optionValue}">Value</label>
+    <input type="text" id="valueField" name="optionValue" pattern=".+" required="" placeholder="Option Value">
+
+    <label for="textField"
+           data-th-text="#{optionText}">Text</label>
+    <input type="text" id="textField" name="optionText" pattern=".+" required="" placeholder="Option Text">
+</th:block>
+
+</body>
+</html>

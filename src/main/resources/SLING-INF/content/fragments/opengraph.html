@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<th:block data-th-fragment="default(og)">
+    <meta property="og:url" data-th-content="${og.url}" />
+    <meta property="og:title" data-th-content="${og.title}" />
+    <meta property="og:type" content="article" />
+    <th:block data-th-if="${not #strings.isEmpty(og.image)}">
+        <meta property="og:image:secure_url" data-th-content="${og.image}"/>
+    </th:block>
+</th:block>
+
+<!-- list: org.whistlepost.model.extensions.OpenGraphEndpointList -->
+<div data-th-fragment="list(container)">
+    <ul>
+        <li data-th-each="og : ${container.getFilteredList()}">
+            <div data-th-replace="/apps/wp-pure/fragments/opengraph.html::tile(${og})"></div>
+        </li>
+    </ul>
+</div>
+
+<!-- og: org.whistlepost.model.extensions.OpenGraphEndpoint -->
+<div data-th-fragment="tile(og)" data-th-with="width=${width} ?: '320'">
+    <a href="#" data-th-href="${og.url}">
+        <img src="#" title="[OG TILE]"
+             data-th-unless="${#strings.isEmpty(og.image)}" data-th-src="${og.image}" data-th-title="${og.title}"
+             data-th-width="${width}">
+        <i class="fa-solid fa-newspaper fa-10x"
+           data-th-if="${#strings.isEmpty(og.image)}"></i>
+    </a>
+</div>
+
+<!-- og: org.whistlepost.model.extensions.OpenGraphEndpoint -->
+<th:block data-th-fragment="image(og)" data-th-with="width=${width} ?: '320'">
+    <img src="#" title="[OG TILE]"
+         data-th-unless="${#strings.isEmpty(og.image)}"
+         data-th-src="${og.image}" data-th-title="${og.title}" data-th-width="${width}">
+    <i class="fa-solid fa-newspaper fa-10x"
+       data-th-if="${#strings.isEmpty(og.image)}"></i>
+</th:block>
+
+</body>
+</html>

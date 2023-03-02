@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<nav data-th-fragment="menu(menu, home)" class="pure-menu pure-menu-horizontal" style="position:sticky; top:0; z-index: 2; background-color: white; display:flex; align-items:center; font-size:1.2em; margin-left:-10px; margin-right:-10px;">
+    <a href="#" class="pure-menu-heading pure-menu-link" data-th-replace=":: menu-heading(${home})">
+        <img class="pure-img" style="max-height:40px;" src="https://dummyimage.com/120x40/aaa/fff" alt="Placeholder logo image">
+    </a>
+    <ul class="pure-menu-list">
+        <th:block data-th-each="item : ${menu.headerNav}">
+            <th:block data-sling-include="${item.resource}" data-sling-replaceSelectors="'menu'"></th:block>
+        </th:block>
+    </ul>
+    <div style="flex-grow:2;"></div>
+    <th:block data-sling-include="${resource}" data-sling-resourceType="'wp-pure/extension/weather'">
+        [WEATHER]
+    </th:block>
+</nav>
+
+<a href="#" class="pure-menu-heading pure-menu-link"
+   data-th-fragment="menu-heading(home)" data-th-href="|${resolver.map(request, home.resource.path)}.html|" >
+    <img class="pure-img" style="max-height:40px;" src="https://dummyimage.com/120x40/aaa/fff" alt="Placeholder logo image"
+         data-th-src="${home.branding.logo}" data-th-alt="${home.branding.alttext}">
+</a>
+
+<li class="pure-menu-item"
+    data-th-fragment="link-menu-item(item)">
+    <a href="#" class="pure-menu-link"
+       data-th-href="|${resolver.map(request, item.resource.path)}.html|" data-th-text="${item.title}">[LINK]</a>
+</li>
+
+<li class="pure-menu-item"
+    data-th-fragment="image-menu-item(item)">
+    <a href="#" class="pure-menu-link"
+       data-th-href="|${resolver.map(request, item.resource.path)}.html|">
+        <img class="pure-img" style="max-height:40px;" src="https://dummyimage.com/120x40/aaa/fff" alt="Placeholder logo image"
+             data-th-src="${item.branding.logo}" data-th-alt="${item.branding.alttext}">
+    </a>
+</li>
+
+<li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"
+    data-th-fragment="dropdown-menu-item(item, children)">
+    <a href="#" class="pure-menu-link"
+       data-th-href="|${resolver.map(request, item.resource.path)}.html|" data-th-text="${item.title}">
+    </a>
+    <ul class="pure-menu-children">
+        <th:block data-th-each="section : ${children.sections}">
+            <th:block data-sling-include="${section.path}" data-sling-replaceSelectors="'menu'"></th:block>
+        </th:block>
+    </ul>
+</li>
+
+<li class="pure-menu-item"
+    data-th-fragment="nested-menu-item(content)">
+    <div data-th-replace="${content}"></div>
+</li>
+
+</body>
+</html>

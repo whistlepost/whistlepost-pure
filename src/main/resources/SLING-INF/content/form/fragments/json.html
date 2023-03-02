@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+    <style>
+      #jsoneditor {
+        width: 600px;
+        height: 500px;
+      }
+    </style>
+</head>
+<body>
+
+<form class="pure-form pure-form-aligned">
+
+    <div id="jsoneditor"></div>
+</form>
+<!--<script type="javascript" src="../../../../../assets/editor.bundle.js"></script>-->
+<script type="module">
+import { whistlepost } from '../../../../../assets/editor.bundle.js';
+
+      // create the editor
+      const editor = new JSONEditor({
+        target: document.getElementById('jsoneditor')
+      })
+
+      // set json
+      document.getElementById('setContent').onclick = function () {
+        const content = {
+          text: undefined, // used in text mode
+          json: {
+            array: [1, 2, 3],
+            boolean: true,
+            color: '#82b92c',
+            null: null,
+            number: 123,
+            object: { a: 'b', c: 'd' },
+            time: 1575599819000,
+            string: 'Hello World'
+          }
+        }
+
+        editor.set(content)
+      }
+</script>
+</body>
+</html>

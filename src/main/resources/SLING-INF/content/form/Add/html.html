@@ -1,0 +1,20 @@
+<th:block data-th-with="action=${resource.adaptTo(@org.whistlepost.model.Action@class)}">
+    <form class="pure-form pure-form-aligned" id="edit"
+          data-th-method="${action.form.submit.method}" data-th-enctype="${action.form.submit.encoding}"
+          data-th-target="${action.form.submit.target}" data-th-action="${action.target.path}">
+
+        <input type="hidden" name="list/jcr:primaryType" value="nt:unstructured" />
+        <input type="hidden" name=":redirect" data-th-value="|${action.target.path}/list/*.html|"/>
+        <th:block data-th-each="fieldset : ${action.form.fieldsets}">
+            <fieldset>
+                <th:block data-th-if="${fieldset.legend}">
+                    <legend data-th-text="${fieldset.legend}">[TITLE]</legend>
+                </th:block>
+                <th:block data-th-each="field : ${fieldset.fields}">
+                    <th:block data-sling-include="${field}" data-sling-replaceSuffix="${action.target.valueMap[field.name]}">
+                    </th:block>
+                </th:block>
+            </fieldset>
+        </th:block>
+    </form>
+</th:block>

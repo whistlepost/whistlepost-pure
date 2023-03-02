@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-th-with="page=${resource.adaptTo(@org.whistlepost.model.Page@class)}">
+
+<th:block data-sling-include="${resource}" data-sling-resourceType="'wp/component/head'">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../../../../assets/images/favicon.ico" rel="icon">
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+    <link href="../../../../../assets/css/fonts.css" rel="stylesheet">
+</th:block>
+
+<body>
+
+<main>
+    <ul>
+        <li>
+            <i class="fa-solid fa-sitemap"></i>
+            <a href="/content/wp-admin/sites.html">Sites</a>
+        </li>
+        <li>
+            <i class="fa-solid fa-rectangle-list"></i>
+            <a href="/content/wp-admin/forms.html">Forms</a>
+        </li>
+        <li>
+            <i class="fa-solid fa-globe"></i>
+            <a href="/content/wp-admin/extensions.html">Extensions</a>
+        </li>
+        <li>
+            <i class="fa-solid fa-mountain-sun"></i>
+            <a href="/content/wp-admin/views.html">Views</a>
+        </li>
+        <li>
+            <i class="fa-solid fa-photo-film"></i>
+            <a href="/content/wp-admin/media.html">Media</a>
+        </li>
+    </ul>
+</main>
+</body>
+</html>

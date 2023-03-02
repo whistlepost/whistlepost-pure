@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../../../../assets/whistlepost.bundle.css" rel="stylesheet">
+</head>
+<body>
+
+<section data-th-fragment="weatherzone" style="text-align:center">
+
+    <!--Weatherzone local weather-->
+    <style type="text/css">
+	.weatherzone { font-family: Tahoma, Arial, Sans-Serif; font-size: small; font-weight: normal; color: #323232; background-color: #EFEFEF; }
+	.weatherzone_head { font-family: Tahoma, Arial, Sans-Serif; font-size: small; font-weight: bold; text-align: center; color: #EFEFEF; background-color: #4185A5; }
+	</style>
+    <script type="text/javascript" src="//www.weatherzone.com.au/woys/page_local.jsp?postcode=3612&locality=waranga"></script>
+    <a href="https://www.weatherzone.com.au"></a>
+    <!--end Weatherzone local weather-->
+
+</section>
+
+<div style="display:inline; vertical-align:bottom;" data-th-fragment="darksky">
+<!--    <span class="navbar-text">-->
+        <script type='text/javascript' src='https://darksky.net/widget/small/-36.5848,145.0158/uk12/en.js?width=100%&height=47&title=rushworth&textColor=333333&bgColor=FFFFFF&transparency=false&skyColor=undefined&fontFamily=Arial&customFont=&units=uk'></script>
+<!--    </span>-->
+</div>
+
+<div style="display:inline; vertical-align:bottom;" data-th-fragment="weatherwidget(locationCode)">
+    <a class="weatherwidget-io" href="https://forecast7.com/en/n36d63145d07/rushworth/" data-label_1="RUSHWORTH" data-label_2="WEATHER" data-mode="Current" data-theme="pure" >RUSHWORTH WEATHER</a>
+    <script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+</div>
+
+</body>
+</html>

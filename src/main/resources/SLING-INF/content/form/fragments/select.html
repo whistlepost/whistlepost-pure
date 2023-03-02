@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<th:block data-th-fragment="select(control)">
+    <label data-th-for="${control.id}" for="select1" data-th-text="#{${control.labelKey}}">[LABEL]</label>
+    <select id="select1"
+            data-th-id="${control.id}">
+        <option value="option1">[OPTION 1]</option>
+    </select>
+</th:block>
+
+</body>
+</html>

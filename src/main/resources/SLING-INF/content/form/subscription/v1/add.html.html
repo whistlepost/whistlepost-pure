@@ -1,0 +1,8 @@
+<th:block data-th-with="form=${resource.adaptTo(@org.whistlepost.model.Form@class)}">
+    <form class="pure-form pure-form-aligned" method="POST" enctype="multipart/form-data"
+          data-th-action="${form.action}">
+        <th:block data-th-each="field : ${form.fields}" data-sling-include="${field.path}">
+        </th:block>
+        <input type="submit" value="Add Subscription"/>
+    </form>
+</th:block>

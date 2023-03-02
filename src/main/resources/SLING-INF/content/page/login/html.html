@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Micronode">
+
+    <link rel="icon" href="/assets/wp-pure/images/favicon.ico">
+
+    <title>Whistlepost - Login</title>
+
+    <link href="/assets/wp-pure/css/layout.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wp-layout holygrail">
+    <main>
+        <h1>Whistlepost installed successfully.</h1>
+        <form method="post" action="/j_security_check" autocomplete="off" class="form-signin">
+            <input type="text" class="form-control" placeholder="username" required autofocus name="j_username">
+            <input type="password" class="form-control" placeholder="password" required name="j_password">
+            <input type="hidden" name="sling.auth.redirect" value="/content/success.html">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                sign in</button>
+            <label class="checkbox pull-left">
+                <input type="checkbox" value="remember-me">
+                remember me
+            </label>
+            <a href="#" class="pull-right need-help">need help? </a><span class="clearfix"></span>
+        </form>
+    </main>
+
+    <footer>
+        Copyright (c) 2020 Micronode.
+    </footer>
+</div>
+
+</body>
+</html>

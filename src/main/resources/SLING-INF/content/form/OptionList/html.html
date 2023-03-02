@@ -1,0 +1,8 @@
+<th:block data-th-with="control=${resource.adaptTo(@org.whistlepost.model.form.OptionList@class)}">
+    <div data-th-replace="/apps/wp-pure/form/fragments/list.html::option-list(${control})">
+    </div>
+    <th:block data-sling-include="/content/wp-admin/forms/action/controls/list/submitButton">
+    </th:block>
+    <th:block data-sling-include="/content/wp-admin/forms/action/controls/list/cancelLink">
+    </th:block>
+</th:block>

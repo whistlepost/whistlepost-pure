@@ -1,0 +1,14 @@
+<th:block data-th-with="form=${resource.adaptTo(@org.whistlepost.model.Form@class)}">
+    <form class="pure-form" id="add-content" method="POST" enctype="multipart/form-data"
+          data-th-action="${form.action}">
+<!--        <input type="hidden" name="sling:resourceType" value="wp/page/folder"/>-->
+        <input type="hidden" name=":redirect" data-th-value="|${resource.parent.path}/list/*.html|"/>
+        <input type="hidden" name="list/jcr:primaryType" value="nt:unstructured" />
+        <th:block data-th-each="field : ${form.fields}">
+            <th:block data-sling-include="${field.path}">
+
+            </th:block>
+        </th:block>
+<!--        <input type="submit" value="Add Category" data-th-value="#{${form.submitValueKey}}"/>-->
+    </form>
+</th:block>
