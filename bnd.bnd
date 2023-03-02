@@ -1,0 +1,8 @@
+Sling-Initial-Content: SLING-INF/content;path:=/apps/wp-pure;overwrite:=true
+Sling-Bundle-Resources: /assets/wp-pure;path:=/assets
+Automatic-Module-Name: org.whistlepost.app
+Bundle-Name: Whistlepost Pure CSS Theme
+Bundle-Description: Resource templates for rendering Whistlepost content
+Bundle-SymbolicName: org.whistlepost.wp-pure
+Bundle-Category: whistlepost
+Bundle-Version: ${project.version}

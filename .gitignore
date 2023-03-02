@@ -1,0 +1,8 @@
+.gradle/
+build/
+.idea/
+*.iml
+node_modules/
+*.bundle.js
+*.bundle.css
+*.log
