@@ -11,7 +11,7 @@ apply plugin: 'signing'
 
 scmVersion {
     tag {
-        prefix = 'whistlepost-purecss-'
+        prefix = 'whistlepost-pure-'
     }
     versionCreator 'versionWithBranch'
     branchVersionCreator = ['main': 'simple']
@@ -88,13 +88,13 @@ publishing {
                 asNode().appendNode('url', 'https://www.whistlepost.org')
 
                 def scmNode = asNode().appendNode('scm')
-                scmNode.appendNode('url', 'https://github.com/whistlepost/whistlepost-purecss')
-                scmNode.appendNode('connection', 'scm:git@github.com:whistlepost/whistlepost-purecss.git')
-                scmNode.appendNode('developerConnection', 'scm:git@github.com:whistlepost/whistlepost-purecss.git')
+                scmNode.appendNode('url', 'https://github.com/whistlepost/whistlepost-pure')
+                scmNode.appendNode('connection', 'scm:git@github.com:whistlepost/whistlepost-pure.git')
+                scmNode.appendNode('developerConnection', 'scm:git@github.com:whistlepost/whistlepost-pure.git')
 
                 def licenseNode = asNode().appendNode('licenses').appendNode('license')
                 licenseNode.appendNode('name', 'Apache License')
-                licenseNode.appendNode('url', 'https://raw.githubusercontent.com/whistlepost/whistlepost-purecss/master/LICENSE')
+                licenseNode.appendNode('url', 'https://raw.githubusercontent.com/whistlepost/whistlepost-pure/master/LICENSE')
                 licenseNode.appendNode('distribution', 'repo')
 
                 def developerNode = asNode().appendNode('developers').appendNode('developer')
