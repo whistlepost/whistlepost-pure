@@ -52,7 +52,7 @@ dependencies {
 
     testImplementation "org.codehaus.groovy:groovy:$groovyVersion",
             'net.sourceforge.nekohtml:nekohtml:1.9.22',
-            'org.apache.cocoon:cocoon-serializers-charsets:1.0.3-SNAPSHOT'
+            'org.apache.cocoon:cocoon-serializers-charsets:1.0.2'
 
     testImplementation platform("org.spockframework:spock-bom:2.0-M4-groovy-3.0"),
             "org.spockframework:spock-core",
