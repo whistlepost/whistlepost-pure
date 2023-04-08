@@ -28,6 +28,7 @@ repositories {
 
 sourceCompatibility = 8
 targetCompatibility = 8
+
 dependencies {
     implementation "org.codehaus.groovy:groovy-all:$groovyVersion",
             'javax.servlet:javax.servlet-api:3.1.0'
@@ -59,6 +60,11 @@ dependencies {
             "org.apache.logging.log4j:log4j:$log4jVersion"
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 node {
     download = true
 }
@@ -72,6 +78,7 @@ clean.dependsOn yarn_cache_clean
 build.dependsOn buildWebpack
 
 group = 'org.whistlepost'
+description = 'The default Whistlepost rendering theme based on PureCSS'
 version = scmVersion.version
 
 ext {
