@@ -1,8 +1,8 @@
 [PureCSS]: https://purecss.io/
 [Schema.org]: https://schema.org
 
-# whistlepost-purecss
-Whistlepost Theme: PureCSS
+# whistlepost-pure
+Whistlepost Theme: Pure
 
 This bundle contains the core assets and scripts for rendering Whistlepost sites.
 
