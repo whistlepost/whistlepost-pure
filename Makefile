@@ -7,7 +7,7 @@ CHANGE_JUSTIFICATION=$(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 .PHONY: all gradlew clean build changelog currentVersion markNextVersion listApiChanges approveApiChanges \
 	verify release publish
 
-all: test
+all: build
 
 gradlew:
 	./gradlew wrapper --gradle-version=$(GRADLE_VERSION) --distribution-type=bin
