@@ -62,15 +62,6 @@ article span.link {
   /*background-image: url('empty.gif');*/
 }
 
-footer {
-    padding: 1em 0;
-    text-align: center;
-}
-footer a {
-    color: #ccc;
-    /* font-size: 80%; */
-}
-
 .wp-logo-bg {
     /* background-image: url("/assets/wp-pure/images/logo-60.png"); */
     background-size: 48px;
