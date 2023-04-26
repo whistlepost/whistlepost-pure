@@ -52,7 +52,7 @@
 <!--        <p data-th-text="${par}">Lorem ipsum</p>-->
 <!--    </div>-->
     <p data-th-text="${article.abstract}">[SUMMARY]</p>
-    <a data-th-href="|${article.resource.path}.html|"><span class="link"></span></a>
+    <a data-th-href="|${resolver.map(request, article.resource.path)}.html|"><span class="link"></span></a>
 </article>
 
 <article class="article-link wnews-article" data-th-fragment="summary(article)">
@@ -62,7 +62,7 @@
         <img class="pure-img" data-th-src="${article.metadata.image}" data-th-alt="|${article.metadata.title} image|"/>
     </div>
     <p data-th-text="${article.abstract}">[ABSTRACT]</p>
-    <a data-th-href="|${article.resource.path}.html|"><span class="link"></span></a>
+    <a data-th-href="|${resolver.map(request, article.resource.path)}.html|"><span class="link"></span></a>
 </article>
 
 <article class="wnews-article" data-th-fragment="full(article)">
@@ -140,7 +140,7 @@
 </div>
 
 <article data-th-fragment="link(article)">
-    <a data-th-href="|${article.resource.path}.html|"><span data-th-utext="${article.metadata.title}">[ARTICLE]</span></a>
+    <a data-th-href="|${resolver.map(request, article.resource.path)}.html|"><span data-th-utext="${article.metadata.title}">[ARTICLE]</span></a>
 </article>
 
 </body>
