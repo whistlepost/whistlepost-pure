@@ -5,25 +5,38 @@
 </head>
 <body>
 
+<!-- Article summary, rendering title, date published, image and abstract -->
 <article class="feature-article link wnews-article"
          data-th-fragment="summary(article)">
     <h1 data-th-text="${article.title}">[TITLE]</h1>
     <p class="date-published" data-th-text="${article.datePublished}">[DATE]</p>
 
     <div data-th-if="${not #strings.isEmpty(article.image)}">
-        <img class="pure-img" data-th-src="${article.image}" data-th-alt="|${article.title} image|"/>
+        <img class="pure-img"
+             data-th-src="${article.image}" data-th-alt="|${article.title} image|"/>
     </div>
 
     <p data-th-text="${article.abstract}">[SUMMARY]</p>
     <a data-th-href="|${resolver.map(request, article.resource.path)}.html|"><span class="link"></span></a>
 </article>
 
-<article data-th-fragment="full(article)">
+<!-- Article thumbnail using image only -->
+<article data-th-fragment="thumbnail(article)">
+    <a data-th-href="|${resolver.map(request, article.resource.path)}.html|">
+        <img class="img-thumbnail img-fluid" data-th-src="${article.image}" data-th-alt="|${article.title} image|"/>
+    </a>
+</article>
+
+<article class="wnews-article"
+         data-th-fragment="full(article)">
     <h1 data-th-text="${article.title}">[TITLE]</h1>
     <p class="date-published" data-th-text="${article.datePublished}">[DATE]</p>
 
+    <p style="font-weight:bold" data-th-text="${article.abstract}">[SUMMARY]</p>
+
     <div data-th-if="${not #strings.isEmpty(article.image)}">
-        <img class="pure-img" data-th-src="${article.image}" data-th-alt="|${article.title} image|"/>
+        <img class="pure-img"
+             data-th-src="${article.image}" data-th-alt="|${article.title} image|"/>
     </div>
 
     <div data-th-utext="${article.text}">
@@ -33,7 +46,7 @@
 <div class="wp-layout dynamic"
      data-th-fragment="summary-list(articles)" data-th-with="exclude=${exclude} ?: null">
 <!--    <p data-th-text="${list.numberOfItems}"></p>-->
-    <th:block data-th-each="article : ${articles.getSortedList()}">
+    <th:block data-th-each="article : ${articles.pageItems}">
         <th:block data-th-unless="${exclude && article.resource.path == exclude.resource.path}">
             <div data-th-replace=":: summary(${article})">
             </div>
@@ -41,12 +54,12 @@
     </th:block>
 </div>
 
-<div data-th-fragment="link-list(list, title)">
+<div data-th-fragment="link-list(list, title)" style="padding: 0 5px 0 5px">
     <h3>
         <a data-th-href="|${resolver.map(request, list.listResource.parent.path)}.html|"><span data-th-utext="${title}">[COLUMN]</span></a>
     </h3>
     <ul style="list-style:none; padding-left:0;">
-        <th:block data-th-each="article : ${list.getSortedList()}">
+        <th:block data-th-each="article : ${list.pageItems}">
             <li style="margin-bottom:5px;">
                 <a data-th-href="|${resolver.map(request, article.resource.path)}.html|"><span data-th-utext="${article.title}">[ARTICLE]</span></a>
             </li>

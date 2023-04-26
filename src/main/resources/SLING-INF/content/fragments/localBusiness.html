@@ -6,7 +6,7 @@
 <body>
 
 <div data-th-fragment="summary(localBusiness)">
-    <a data-th-href="|${localBusiness.resource.path}.html|">
+    <a data-th-href="|${resolver.map(request, localBusiness.resource.path)}.html|">
         <img class="pure-img" data-th-src="${localBusiness.image}" data-th-alt="|${localBusiness.title} image|"/>
     </a>
 </div>
