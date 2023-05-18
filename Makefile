@@ -4,16 +4,19 @@ include .env
 NEXT_VERSION=$(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 CHANGE_JUSTIFICATION=$(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
 
-.PHONY: all gradlew clean build changelog currentVersion markNextVersion listApiChanges approveApiChanges \
+.PHONY: all gradlew clean check build changelog currentVersion markNextVersion listApiChanges approveApiChanges \
 	verify release publish
 
-all: build
+all: check
 
 gradlew:
 	./gradlew wrapper --gradle-version=$(GRADLE_VERSION) --distribution-type=bin
 
 clean:
 	./gradlew clean #&& docker rmi $(REGISTRY)/$(IMAGE_NAME)
+
+check:
+	./gradlew check
 
 test:
 	./gradlew test
